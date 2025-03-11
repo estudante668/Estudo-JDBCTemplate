@@ -22,16 +22,13 @@ public class Repositorio {
 		listaCamisa.add(c);
 	}
 	
-	
 	public List<Camisa> buscarCamisas(){
 		return listaCamisa;
 	}
 
-
 	public Optional<Camisa> buscarListaId(Integer id) {
 		return listaCamisa.stream().filter( obj -> obj.id().equals(id)).findFirst();
 	}
-
 
 	public void salvarProduto(@Valid Camisa camisa) {
 		
