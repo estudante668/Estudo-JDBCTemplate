@@ -6,3 +6,6 @@ CREATE TABLE IF NOT EXISTS Camisa(
    preco varchar(255) NOT NULL,
    primary key(id)
 );
+
+INSERT INTO Camisa (modelo, marca, preco)
+VALUES ('Topper', 'Lesut', '345,78');
