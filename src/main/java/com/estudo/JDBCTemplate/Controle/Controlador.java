@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.estudo.JDBCTemplate.modelo.Camisa;
+import com.estudo.JDBCTemplate.repositorio.JDBCTemplateRepositorio;
 import com.estudo.JDBCTemplate.repositorio.Repositorio;
 
 import jakarta.validation.Valid;
@@ -24,18 +25,21 @@ import jakarta.validation.Valid;
 public class Controlador {
 
 	
-	Repositorio repositorio;
+//	Repositorio repositorio;
+	
+	private final JDBCTemplateRepositorio repositorio;
 		
-	public Controlador(Repositorio repositorio) {
+	public Controlador( JDBCTemplateRepositorio repositorio) {
 		this.repositorio = repositorio;
 	}
 
 	@GetMapping
 	public List<Camisa> ListaCamisas() {
-		return repositorio.buscarCamisas();	
+		return repositorio.listaCamisas();	
 	}
 	
-	@GetMapping("/{id}")
+	/*
+	 * @GetMapping("/{id}")
 	public Optional<Camisa> buscarListaId(@PathVariable Integer id){
 		return repositorio.buscarListaId(id);
 	}
@@ -54,4 +58,6 @@ public class Controlador {
 		}
 		repositorio.salvarProduto(camisa);
 	}
+	 * 
+	 * */
 }
