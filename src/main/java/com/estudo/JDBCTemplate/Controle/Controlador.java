@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.estudo.JDBCTemplate.modelo.Camisa;
+import com.estudo.JDBCTemplate.repositorio.CamisasRepositorio;
 import com.estudo.JDBCTemplate.repositorio.JDBCTemplateRepositorio;
 import com.estudo.JDBCTemplate.repositorio.Repositorio;
 
@@ -25,17 +26,19 @@ import jakarta.validation.Valid;
 public class Controlador {
 
 	
-//	Repositorio repositorio;
+// private final Repositorio repositorio;
 	
-	private final JDBCTemplateRepositorio repositorio;
+//	private final JDBCTemplateRepositorio repositorio;
+	
+	private final CamisasRepositorio repositorio;
 		
-	public Controlador( JDBCTemplateRepositorio repositorio) {
+	public Controlador( CamisasRepositorio repositorio) {
 		this.repositorio = repositorio;
 	}
 
 	@GetMapping
 	public List<Camisa> ListaCamisas() {
-		return repositorio.listaCamisas();	
+		return repositorio.findAll();	
 	}
 	
 	/*
